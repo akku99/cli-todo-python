@@ -39,7 +39,7 @@ def mark_done(task_number):
     with open("tasks.txt", "r") as file:
         tasks = file.readlines()
     if 0 < task_number <= len(tasks):
-        task_pasts = tasks[task_number - 1]. strip.split(" |  ")
+        task_parts = tasks[task_number - 1].strip().split(" | ")
         task_parts[1] = "Done"
         tasks[task_number - 1] = "|".join(task_parts) + "\n"
         with open("tasks.txt", "w") as file:
@@ -61,7 +61,7 @@ def main():
 
         choice = input("Choose an option: ")
 
-        if choice == "i":
+        if choice == "1":
             show_tasks()
         elif choice == "2":
             task = input("Enter task:")
@@ -80,6 +80,6 @@ def main():
         else:
             print("Invalid choice. Try Again.")
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     main()
 
